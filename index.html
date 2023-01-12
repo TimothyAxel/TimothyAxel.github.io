@@ -3,16 +3,52 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <title>Dashboard</title>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
-
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>I am pushing this at 6:41. Checked at 6:45 and changes were online.</p>
-
+  <div id="navbar">
+    <h2>GoalSMART</h2>
+    <h2>Username</h2>
+    <h2>Sign Out</h2>
+  </div>
+  <div id="goalContainer">
+    <h2>My Goals</h2>
+    <table id="goals">
+      <thead>
+        <td>Due Date</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Progress</td>
+      </thead>
+      <tbody>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+      </tbody>
+    </table>
+  </div>
+  <form id="newGoalForm">
+    <div class="containerCell">
+      <h1>Insert a New Goal</h1>
+      <div>
+        <label for="goalName">Name</label>
+        <input style="width: 30vw;"id="goalName" type="text" name="goalName">
+      </div>
+      <div>
+        <label for="goalDue">Due Date</label> 
+        <input id="goalDue" type="date" name="goalDue">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label for="goalDesc">Description</label>
+        <textarea style="height:20vw; width:50vw;" id="goalDesc" name="goalDesc"></textarea> 
+      </div>
+      <input style="width:25%;"type="submit">
+    </div>
+  </form>
 </body>
 </html>
