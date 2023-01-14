@@ -5,12 +5,16 @@
     <style>
         #container{
             display: grid;
-            grid-template-columns: auto auto auto auto;
+            grid-template-columns: auto auto auto auto auto;
             justify-content: center;
             column-gap: 10px;
             text-align: center;
             align-items: center;
             margin: 0 auto;
+        }
+
+        #container > p{
+            text-align: right;
         }
 
         body{
@@ -24,6 +28,7 @@
 
         button{
             width: fit-content;
+            margin: 0 auto;
         }   
 
     </style>
@@ -31,14 +36,23 @@
 
 <body>
 
-    <form id="container" action="dashboard.html">
-        <h1 style="color: rgb(0, 0, 0); grid-column: 1 / span 4; grid-row: 1;"> <span style="color: #007fffff;">Goal</span>SMART </h1>
-        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 2;"> Username </p>
-        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 2;" class="textField" name="user">  </input>
-        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 3;"> Password </p>
-        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 3;" class="textField" name="pw">  </input>
-        <button style="grid-column: 2; grid-row: 4;" type="submit"> Sign In </button>
-        <a href="targets.html" style="grid-column: 3; grid-row: 4;"><button type="button"> Sign Up </button></a>
+    <form id="container" action="index.html">
+        <h1 style="color: rgb(0, 0, 0); grid-column: 1 / span 5; grid-row: 1;"> <span style="color: #007fffff;">Goal</span>SMART </h1>
+        <h2 style="color: rgb(0, 0, 0); grid-column: 1 / span 5; grid-row: 2;"> Sign Up </h2>
+        
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 3;"> Username </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 4; grid-row: 3;" class="textField" name="user">  </input>
+        
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 4;"> Password </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 4; grid-row: 4;" class="textField" name="user">  </input>
+        
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 5;">Repeat Password </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 4; grid-row: 5;" class="textField" name="pw">  </input>
+
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 6;"> Email Address </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 4; grid-row: 6;" class="textField" name="pw">  </input>
+        
+        <button style="grid-column: 1 / span 5; grid-row: 7;" type="submit"> Sign Up Now </button>
     </form>
 
 </body>
