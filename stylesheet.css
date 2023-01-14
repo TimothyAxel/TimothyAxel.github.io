@@ -16,12 +16,7 @@ table, td, th {
     border: 2px solid black;
     border-collapse: collapse;
 }
-html { width:100%; margin:0; padding:0; }
-body { width:100%; margin:0; padding:0; }
-
-thead {
-    /* font-weight: bold; */
-}
+html,body { width:100%; margin:0;}
 
 #navbar {
     display: flex;
@@ -33,33 +28,4 @@ thead {
     color:white;
     padding-bottom: 3px;
     text-decoration: none;
-}
-#goalContainer {
-    background-color: aliceblue;
-    display: block;
-    height: max-content;
-    text-align: center;
-    padding: 5%;
-}
-#goalContainer * {
-    margin: 0 auto;
-    min-width: fit-content;
-    padding: 10px;
-}
-#newGoalForm {
-    display: flex;
-    background-color: #007FFFFF;
-    padding: 3%;
-    column-gap: 10%;
-    justify-content: center;
-    color:white;
-    /* font-weight: bold; */
-}
-#newGoalForm div {
-    display: flex;
-    gap: 10%;
-    flex-direction: column;
-}
-#newGoalForm > div {
-    gap: 2vw;
 }

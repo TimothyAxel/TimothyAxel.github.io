@@ -5,13 +5,44 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>Dashboard</title>
   <link href="stylesheet.css" rel="stylesheet" type="text/css">
+  <style>
+    #goalContainer {
+        background-color: aliceblue;
+        display: block;
+        height: max-content;
+        text-align: center;
+        padding: 5%;
+    }
+    #goalContainer * {
+        margin: 0 auto;
+        min-width: fit-content;
+        padding: 10px;
+    }
+    #newGoalForm {
+        display: flex;
+        background-color: #007FFFFF;
+        padding: 3%;
+        column-gap: 10%;
+        justify-content: center;
+        color:white;
+        /* font-weight: bold; */
+    }
+    #newGoalForm div {
+        display: flex;
+        gap: 10%;
+        flex-direction: column;
+    }
+    #newGoalForm > div {
+        gap: 2vw;
+    }
+  </style>
 </head>
 
 <body>
   <div id="navbar">
     <h2>GoalSMART</h2>
     <h2>Username</h2>
-    <h2>Sign Out</h2>
+    <h2><a href="index.html" style="color:inherit; text-decoration: none;">Sign Out</a></h2>        
   </div>
   <div id="goalContainer">
     <h2>My Goals</h2>
