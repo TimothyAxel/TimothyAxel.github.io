@@ -3,6 +3,43 @@
     <head>
         <title>Target</title>
         <link href="stylesheet.css" rel="stylesheet" type="text/css">
+        <style>
+            * {
+                /* border: solid 2px black; */
+            }
+            #container {
+                padding: 3%;
+                display:grid; 
+                grid-template-columns: repeat(4, auto); 
+                grid-template-areas: 
+                    "goalName goalName" 
+                    "dueDate dueDate"
+                    "description description"
+                    "table table"
+                    "newGoal newGoal";
+            }
+
+            #container * {
+                height: min-content;
+                margin: 0;
+            }
+
+            .status {
+                text-align: center;
+            }
+
+            #newTarget {
+                grid-area: newGoal; 
+                display: grid;
+                margin-top: 5%;
+                grid-template-areas: 
+                    "description description description description" 
+                    "typeText typeField descriptionText descriptionField"
+                    "valueText valueField . descriptionField"
+                    ". . . submit";
+            }
+            
+        </style>
     </head>
     <body>
         <div id="navbar">
@@ -10,7 +47,46 @@
             <h2>Username</h2>
             <h2><a href="index.html" style="color:inherit; text-decoration: none;">Sign Out</a></h2>        
         </div>
-        <h1>GoalName</h1>
+
+        <div id="container">
+            <h1 style="grid-area: goalName;">My Example Goal</h1>
+            <h3 style="grid-area: dueDate;">Due: 23/01/2023</h2>
+            <p style="grid-area: description;">This is a test goal. The description of this goal is in this column</p>
+            <table style="grid-area: table; margin-top: 5%;">
+                <thead>
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        Status
+                    </td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gather 3 pieces of firewood</td>
+                        <td class="status"><input type="number" step="1" max="3" min="0" value="0"> / 3</td>
+                    </tr>
+                    <tr>
+                        <td>Make fire</td>
+                        <td class="status"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Save $7.50</td>
+                        <td class="status">$<input type="number" step="0.01" max="7.5" min="0" value="0.00"> / $7.50</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form id="newTarget">
+                <h2 style="grid-area: description;">Create a New Goal</h2>
+                <h3 style="grid-area: typeText">Type:</h3>
+                <input style="grid-area: typeField" type="text">
+                <h3 style="grid-area: valueText">Value:</h3>
+                <input style="grid-area: valueField" type="text">
+                <h3 style="grid-area: descriptionText;">Description:</h3>
+                <textarea style="grid-area: descriptionField"> </textarea>
+                <input style="grid-area: submit" type="submit">
+            </form>
+        </div>
 
     </body>
 </html>
