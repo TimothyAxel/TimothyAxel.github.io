@@ -24,6 +24,7 @@
 
         button{
             width: fit-content;
+            margin: 0 auto;
         }   
 
     </style>
@@ -33,9 +34,11 @@
 
     <form id="container" action="dashboard.html">
         <h1 style="color: rgb(0, 0, 0); grid-column: 1 / span 4; grid-row: 1;"> <span style="color: #007fffff;">Goal</span>SMART </h1>
-
-        <a href="signin.html" style="grid-column: 1; grid-row: 4;"><button type="button"> Sign In </button></a>
-        <a href="signup.html" style="grid-column: 4; grid-row: 4;"><button type="button"> Sign Up </button></a>
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 2;"> Username </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 2;" class="textField" name="user">  </input>
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 3;"> Password </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 3;" class="textField" name="pw">  </input>
+        <button style="grid-column: 1 / span 4; grid-row: 4;" type="submit"> Sign In </button>
     </form>
 
 </body>
