@@ -8,15 +8,14 @@
                 /* border: solid 2px black; */
             }
             #container {
+                margin: 0 auto;
                 padding: 3%;
                 display:grid; 
-                grid-template-columns: repeat(4, auto); 
                 grid-template-areas: 
                     "goalName goalName" 
                     "dueDate dueDate"
                     "description description"
-                    "table table"
-                    "newGoal newGoal";
+                    "table table";
             }
 
             #container * {
@@ -29,7 +28,9 @@
             }
 
             #newTarget {
-                grid-area: newGoal; 
+                background-color: #00000011;
+                margin: 0 auto;
+                padding: 3%;
                 display: grid;
                 margin-top: 5%;
                 grid-template-areas: 
@@ -37,7 +38,16 @@
                     "typeText typeField descriptionText descriptionField"
                     "valueText valueField . descriptionField"
                     ". . . submit";
+                text-align: right;
+                justify-content: center;
+                align-items: center;
+                column-gap: 10%;
             }
+
+            #newTarget * {
+                height: fit-content;
+            }
+
             
         </style>
     </head>
@@ -57,7 +67,7 @@
                     <td>
                         Description
                     </td>
-                    <td>
+                    <td class="status">
                         Status
                     </td>
                 </thead>
@@ -76,17 +86,18 @@
                     </tr>
                 </tbody>
             </table>
-            <form id="newTarget">
-                <h2 style="grid-area: description;">Create a New Goal</h2>
-                <h3 style="grid-area: typeText">Type:</h3>
-                <input style="grid-area: typeField" type="text">
-                <h3 style="grid-area: valueText">Value:</h3>
-                <input style="grid-area: valueField" type="text">
-                <h3 style="grid-area: descriptionText;">Description:</h3>
-                <textarea style="grid-area: descriptionField"> </textarea>
-                <input style="grid-area: submit" type="submit">
-            </form>
         </div>
+
+        <form id="newTarget">
+            <h2 style="grid-area: description;">Create a New Goal</h2>
+            <h3 style="grid-area: typeText">Type:</h3>
+            <input style="grid-area: typeField" type="text">
+            <h3 style="grid-area: valueText">Value:</h3>
+            <input style="grid-area: valueField" type="text">
+            <h3 style="grid-area: descriptionText;">Description:</h3>
+            <textarea style="grid-area: descriptionField;"> </textarea>
+            <input style="grid-area: submit" type="submit">
+        </form>
 
     </body>
 </html>
