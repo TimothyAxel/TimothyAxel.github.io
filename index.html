@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Sign in</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            justify-content: center;
+            column-gap: 10px;
+            text-align: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        body{
+            align-items: center;
+            display: flex;
+        }
+
+        .textField{
+            height:max-content;
+        }
+
+        button{
+            width: fit-content;
+        }   
+
+    </style>
+</head>
+
+<body>
+
+    <form id="container">
+        <h1 style="color: rgb(0, 0, 0); grid-column: 1 / span 4; grid-row: 1;"> <span style="color: #007fffff;">Goal</span>SMART </h1>
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 2;"> Username </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 2;" class="textField" name="user">  </input>
+        <p style="color: rgb(0, 0, 0); grid-column: 1; grid-row: 3;"> Password </p>
+        <input style="color: rgb(0, 0, 0); grid-column: 2 / span 3; grid-row: 3;" class="textField" name="pw">  </input>
+        <button style="grid-column: 2; grid-row: 4;" type="submit"> Sign In </button>
+        <a href="targets.html" style="grid-column: 3; grid-row: 4;"><button type="button"> Sign Up </button></a>
+    </form>
+
+</body>
+
+</html>
