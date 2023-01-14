@@ -16,7 +16,27 @@ table, td, th {
     border: 2px solid black;
     border-collapse: collapse;
 }
-html,body { width:100%; margin:0;}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 100%;
+}
+
+h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 1.875em;
+  }
+  
+  p {
+    font-size: 0.875em;
+  }
 
 #navbar {
     display: flex;
@@ -27,5 +47,10 @@ html,body { width:100%; margin:0;}
     background-color: #007FFFFF;
     color:white;
     padding-bottom: 3px;
+    text-decoration: none;
+}
+
+a {
+    color:#007FFFFF;
     text-decoration: none;
 }
