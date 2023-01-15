@@ -13,11 +13,16 @@
                     "dueDate dueDate"
                     "description description"
                     "table table";
+                place-items: center;
             }
 
             #container * {
                 height: min-content;
                 margin: 0;
+            }
+
+            #container table {
+                width: fit-content;
             }
 
             .status {
@@ -31,19 +36,12 @@
                 display: grid;
                 margin-top: 5%;
                 grid-template-areas: 
-                    "description description"
-                    "typeText typeField"
-                    "valueText valueField"
-                    "descriptionText descriptionField"
-                    ". submit"
-                /* grid-template-areas: 
                     "description description description description" 
                     "typeText typeField descriptionText descriptionField"
                     "valueText valueField . descriptionField"
-                    ". . . submit"; */
-                /* text-align: center;
-                justify-content: center;
-                align-items: center; */
+                    ". . . submit";
+                overflow: scroll;
+                column-gap: 5%;
 
             }
 
