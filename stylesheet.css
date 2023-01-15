@@ -50,7 +50,37 @@ h1 {
     text-decoration: none;
 }
 
+#navbar, body, button, #newGoalForm, #logo-colored {
+  animation: colorChange;
+  animation-duration: 32s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes colorChange {
+  0% {
+      filter: hue-rotate(0deg);
+  }
+  100% {
+      filter: hue-rotate(360deg);
+  }
+}
+
 a {
     color:#007FFFFF;
     text-decoration: none;
+}
+
+button{
+  width: fit-content;
+  margin: 0 auto;
+  color: white;
+  background-color: #007fffff;
+  border: 2px solid black;
+  border-radius: 9%;
+  transition: transform 1s;
+}   
+
+button:hover{
+  transform: scale(1.3);
 }
