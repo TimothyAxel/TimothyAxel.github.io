@@ -1,7 +1,3 @@
-window.onload = function test () {
-    console.log("Hello World!")
-}
-
 var clickCount = 0;
 var keyCount = 0;
 var inputCount = 0;
@@ -15,15 +11,12 @@ function formatTime(millis) {
     return ((hours >= 1 ? (hours + " hours ") : "") + (minutes >= 1 ? (minutes + " minutes ") : "") + (secs >= 1 ? (secs + " seconds") : ""));
 }
 
-console.log("Yolo!");
 document.addEventListener("click", function() {
     clickCount++;
-    console.log("clicked! " + clickCount);
 });
 
 document.addEventListener("keypress", function() {
     keyCount++;
-    console.log("KeyPress! " + keyCount);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -32,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     for(var i = 0; i < inputTexts.length; i++) {
         inputTexts[i].addEventListener("input", function() {
             inputCount++;
-            console.log("Typed! " + inputCount);
         });
     } 
     
@@ -40,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
     for(var i = 0; i < textareas.length; i++) {
         textareas[i].addEventListener("input", function() {
             inputCount++;
-            console.log("Typed! " + inputCount);
         });
     } 
 
@@ -49,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
     sb.addEventListener("click", function(event) {
         event.preventDefault();
         var timeEnd = new Date(); 
-        console.log(formatTime(timeEnd - timeStart));
         var time = formatTime(timeEnd - timeStart);
         document.getElementById("tracker-box").innerHTML = 
         `
