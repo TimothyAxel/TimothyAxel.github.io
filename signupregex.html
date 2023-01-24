@@ -525,6 +525,9 @@
         </form>
     </div>
     <script>
+        //Changes the styling of an input vield depending on its validation
+        //valid: a boolean of whether the input is valid (true) or invalid (false)
+        //element: the element whose style we want to change
         function changeValidStyle(valid, element) {
             if (valid) {
                 element.className = "";
@@ -545,10 +548,10 @@
             document.getElementById("userIdMsg").innerHTML = "";
             var message = "";
             const input = idField.value;
-            const startPattern = /^[A-Z]/;
-            const endPattern = /([0-9]|[^A-Za-z0-9])$/;
-            const lengthPattern = /^.{5,12}$/;
-            var valid = true;
+            const startPattern = /^[A-Z]/; //Regex pattern to ensure that input starts with an uppercase character
+            const endPattern = /([0-9]|[^A-Za-z0-9])$/; //Regex pattern to ensure that input ends with a number or special character
+            const lengthPattern = /^.{5,12}$/; //Regex pattern to check that input length is between 5 and 12 characters
+            var valid = true; //boolean to keep track of validity of input as checks are made
             if (!startPattern.test(input)) {
                 message += "<li>Must start with an uppercase letter!</li>";
                 valid = false;
@@ -561,7 +564,7 @@
                 message += "<li>Must be between 5-12 characters in length!</li>";
                 valid = false;
             }
-            changeValidStyle(valid, idField);
+            changeValidStyle(valid, idField); //change style based on validity of input
             if (!valid) {
                 document.getElementById("userIdMsg").innerHTML = message;
                 return null;
@@ -633,6 +636,7 @@
         function getZip() { //Gets input from the zip code field. if input is invalid, return null
             var zipField = document.getElementById("zip");
             var input = zipField.value;
+            //Regex pattern to ensure input is 4 digits ended with 2 characters in the back
             var pattern = /^[0-9]{4}[a-zA-Z]{2}$/;
             var valid = true;
             var message = "";
@@ -707,7 +711,7 @@
             var submitButton = document.getElementById("submitbutton");
 
             submitButton.addEventListener("click", (e) => {
-                e.preventDefault();
+                e.preventDefault(); //prevent submit from refreshing form
 
                 values = [
                     getId(), getPw(), getName(), getZip(), getEmail(), getBiologicalSex(), getLanguage(), getCountry()
@@ -717,16 +721,16 @@
                 ];
                 var message = "";
                 var valid = true;
-                for (var i = 0; i < values.length; i++) {
+                for (var i = 0; i < values.length; i++) { //iterate through all input field values
                     if (values[i] == null)
-                        return;
+                        return; //Break off and do not show any alerts if any of the input fields are invalid
                     message += `${titles[i]}: ${values[i]}\n`;
                 }
                 var bio = document.getElementById("bio").value;
                 var address = document.getElementById("address").value;
                 message += `Address: ${address}\n`;
                 message += `Bio: ${bio}\n`;
-                alert(message);
+                alert(message); //show values received from the user.
             });
         });
     </script>
