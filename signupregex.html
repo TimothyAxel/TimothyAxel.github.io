@@ -552,6 +552,8 @@
             const endPattern = /([0-9]|[^A-Za-z0-9])$/; //Regex pattern to ensure that input ends with a number or special character
             const lengthPattern = /^.{5,12}$/; //Regex pattern to check that input length is between 5 and 12 characters
             var valid = true; //boolean to keep track of validity of input as checks are made
+            
+            //Regex Checks
             if (!startPattern.test(input)) {
                 message += "<li>Must start with an uppercase letter!</li>";
                 valid = false;
@@ -564,6 +566,7 @@
                 message += "<li>Must be between 5-12 characters in length!</li>";
                 valid = false;
             }
+            
             changeValidStyle(valid, idField); //change style based on validity of input
             if (!valid) {
                 document.getElementById("userIdMsg").innerHTML = message;
@@ -575,13 +578,15 @@
         function getPw() { //Gets input from the paasword field. if input is invalid, return null
             var pwField = document.getElementById("pw");
             var input = pwField.value;
-            const lowerLetterChecker = /[a-z]/g;
-            const upperLetterChecker = /[A-Z]/g;
-            const numChecker = /[0-9]/g;
-            const symbolChecker = /[^A-Za-z0-9]/g;
-            const lengthPattern = /^.{12,}$/;
+            const lowerLetterChecker = /[a-z]/g; //Regex pattern check for exist of lowercase letter
+            const upperLetterChecker = /[A-Z]/g; //Regex pattern check for exist of uppercase letter
+            const numChecker = /[0-9]/g; //Regex pattern check for exist of number
+            const symbolChecker = /[^A-Za-z0-9]/g; //Regex pattern check for exist of symbol
+            const lengthPattern = /^.{12,}$/; //Regex pattern check for at least 12 in length
             var message = "";
             var valid = true;
+
+            //Regex Checks
             if (!lengthPattern.test(input)) {
                 message += "<li>Must be at least 12 characters!</li>";
                 valid = false;
@@ -602,29 +607,35 @@
                 message += "<li>Must contain at least one symbol!</li>";
                 valid = false;
             }
-            changeValidStyle(valid, pwField);
+            
+            changeValidStyle(valid, pwField); //Change element style based on input validity
             if (!valid) {
-                document.getElementById("passwordMsg").innerHTML = message;
+                document.getElementById("passwordMsg").innerHTML = message; //Display error message if checks failed
                 return null;
             }
-            return input;
+            return input; //return value if successful
         }
 
         function getName() { //Gets input from the name field. if input is invalid, return null
             var nameField = document.getElementById("name");
             var input = nameField.value;
-            var checker = input.search(/[^a-zA-Z]/);
-            var checkLength = /^.{1,}$/;
+            
+            var checker = input.search(/[^a-zA-Z]/); // Regex pattern search for non alphabet characters, return -1 if there is none
+            var checkLength = /^.{1,}$/; //Regex pattern checks at least one character is entered, since this field is required
+
             var valid = true;
             var message = "";
+            
+            //Regex Checks
             if (checker >= 0) {
                 message += "<li>Must be alphabets only!</li>";
                 valid = false;
             }
             if (!checkLength.test(input)) {
-                           message += "<li>Please enter a name</li>";
-                            valid = false;
+                message += "<li>Please enter a name</li>";
+                valid = false;
             }
+            
             changeValidStyle(valid, nameField);
             if (!valid) {
                 document.getElementById("nameMsg").innerHTML = message;
@@ -636,14 +647,19 @@
         function getZip() { //Gets input from the zip code field. if input is invalid, return null
             var zipField = document.getElementById("zip");
             var input = zipField.value;
-            //Regex pattern to ensure input is 4 digits ended with 2 characters in the back
+            
+            //Regex pattern to ensure input is 4 digits ended with 2 alphabetical characters
             var pattern = /^[0-9]{4}[a-zA-Z]{2}$/;
+            
             var valid = true;
             var message = "";
+            
+            //Regex check
             if (!pattern.test(input)) {
                 message += "<li>A valid zip code must start with 4 numbers and ends with 2 letters</li>";
                 valid = false;
             }
+
             changeValidStyle(valid, zipField);
             if (!valid) {
                 document.getElementById("zipcodeMsg").innerHTML = message;
@@ -655,13 +671,16 @@
         function getEmail() { //Gets input from the email field. if input is invalid, return null
             var emailField = document.getElementById("email");
             var input = emailField.value;
-            var pattern = /^.{1,}@.{1,}$/;
+            var pattern = /^.{1,}@.{1,}$/; //Regex pattern checks for an @ and there is at least one character before and after it
             var valid = true;
             var message = "";
+
+            //Regex Check
             if (!pattern.test(input)) {
                 message += "<li>A valid email address must have an @ in the middle</li>";
                 valid = false;
             }
+
             changeValidStyle(valid, emailField);
             if (!valid) {
                 document.getElementById("emailMsg").innerHTML = message;
@@ -673,11 +692,14 @@
         function getBiologicalSex() {
             var field = document.getElementById("sex");
             var input = field.value;
+            
+            //Check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("sexMsg").innerHTML = "Pick an option!";
                 return null;
             }
+
             changeValidStyle(true, field);
             return input;
         }
@@ -685,11 +707,14 @@
         function getLanguage() {
             var field = document.getElementById("language");
             var input = field.value;
+
+            //check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("languageMsg").innerHTML = "Pick an option!";
                 return null;
             }
+            
             changeValidStyle(true, field);
             return input;
         }
@@ -697,11 +722,14 @@
         function getCountry() {
             var field = document.getElementById("country");
             var input = field.value;
+
+            //Check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("countryMsg").innerHTML = "Pick an option!";
                 return null;
             }
+            
             changeValidStyle(true, field);
             return input;
         }
@@ -710,7 +738,7 @@
 
             var submitButton = document.getElementById("submitbutton");
 
-            submitButton.addEventListener("click", (e) => {
+            submitButton.addEventListener("click", (e) => { //click event handler for submit
                 e.preventDefault(); //prevent submit from refreshing form
 
                 values = [
@@ -719,6 +747,7 @@
                 titles = [
                     "User ID", "Password", "Name", "Zip Code", "Email", "Sex", "Language", "Country"
                 ];
+                
                 var message = "";
                 var valid = true;
                 for (var i = 0; i < values.length; i++) { //iterate through all input field values
@@ -726,10 +755,13 @@
                         return; //Break off and do not show any alerts if any of the input fields are invalid
                     message += `${titles[i]}: ${values[i]}\n`;
                 }
+                
+                //Get optional input fields
                 var bio = document.getElementById("bio").value;
                 var address = document.getElementById("address").value;
                 message += `Address: ${address}\n`;
                 message += `Bio: ${bio}\n`;
+
                 alert(message); //show values received from the user.
             });
         });
