@@ -525,6 +525,9 @@
         </form>
     </div>
     <script>
+        //Changes the styling of an input vield depending on its validation
+        //valid: a boolean of whether the input is valid (true) or invalid (false)
+        //element: the element whose style we want to change
         function changeValidStyle(valid, element) {
             if (valid) {
                 element.className = "";
@@ -540,19 +543,19 @@
             }
         }
 
-        function isUpperCase(input){
+        function isUpperCase(input){ //Takes a unicode and return if it repersent a uppercase letter
             return input > 64 && input < 91;
         }
 
-        function isLowerCase(input){
+        function isLowerCase(input){ //Takes a unicode and return if it repersent a lowercase letter
             return input > 96 && input < 123;
         }
 
-        function isNumber(input){
+        function isNumber(input){ //Takes a unicode and return if it repersent a number
             return input > 47 && input < 58
         }
 
-        function isSymbol(input){
+        function isSymbol(input){ //Takes a unicode and return if it repersent a symbol
             return !(input > 47 && input < 58) && !(input > 64 && input < 91) && !(input > 96 && input < 123);
         }
 
@@ -562,15 +565,15 @@
             var message = "";
             const input = idField.value;
             var valid = true;
-            if (input.length < 1 || !isUpperCase(input.charCodeAt(0))) {
+            if (input.length < 1 || !isUpperCase(input.charCodeAt(0))) { //Check if the first character is a uppercase letter
                 message += "<li>Must start with an uppercase letter!</li>";
                 valid = false;
             }
-            if (input.length < 1 || (!isNumber(input.charCodeAt(input.length-1)) && !isSymbol(input.charCodeAt(input.length-1)))) {
+            if (input.length < 1 || (!isNumber(input.charCodeAt(input.length-1)) && !isSymbol(input.charCodeAt(input.length-1)))) { //Check if the last character is a lowercase letter
                 message += "<li>Must end with a number or special character!</li>";
                 valid = false;
             }
-            if (input.length > 12 || input.length < 5) {
+            if (input.length > 12 || input.length < 5) { //Check if the length is between 5 and 12
                 message += "<li>Must be between 5-12 characters in length!</li>";
                 valid = false;
             }
@@ -585,16 +588,23 @@
         function getPw() { //Gets input from the paasword field. if input is invalid, return null
             var pwField = document.getElementById("pw");
             var input = pwField.value;
+            
+            //Boolean variables for running input checks
             var lowerLetterChecker = false;
             var upperLetterChecker = false;
             var numChecker = false;
             var symbolChecker = false;
+            
             var message = "";
             var valid = true;
+
+            //Check length
             if (input.length < 12) {
                 message += "<li>Must be at least 12 characters!</li>";
                 valid = false;
             }
+
+            //Iterate through the characters provided and determine if input is valid
             for(var i = 0; i < input.length; i++){
                 if (isLowerCase(input.charCodeAt(i))) {
                     lowerLetterChecker = true;
@@ -609,6 +619,8 @@
                     symbolChecker = true;
                 }
             }
+
+            //Append 'invalid' messages if conditions aren't met
             if (!lowerLetterChecker) {
                 message += "<li>Must contain at least one lowercase characters!</li>";
                 valid = false;
@@ -640,6 +652,7 @@
             var checker = true;
             var valid = true;
             var message = "";
+            //Iterate through the input string to check if they are all either uppercase or lowercase characters
             for(var i = 0; i < input.length; i++){
                 if (!isLowerCase(input.charCodeAt(i)) && !isUpperCase(input.charCodeAt(i))) {
                     checker = false;
@@ -668,13 +681,16 @@
             var valid = true;
             var message = "";
             for(var i = 0; i < input.length; i++){
+                //The first 4 characters must be numerical characters 
                 if(i < 4 && !isNumber(input.charCodeAt(i))){
                     checker = false;
                 }
+                //The last 2 numbers must be alphabetical characters
                 if(i >= 4 && !(isUpperCase(input.charCodeAt(i)) || isLowerCase(input.charCodeAt(i)))){
                     checker = false;
                 }
             }
+            //Check input length
             if (!checker || input.length != 6) {
                 message += "<li>A valid zip code must start with 4 numbers and end with 2 letters</li>";
                 valid = false;
@@ -693,6 +709,7 @@
             var checker = false;
             var valid = true;
             var message = "";
+            //Iterate the input string to check for existence of "@" and whether it is the first or the last character
             for(var i = 0; i < input.length; i++){
                 if(input[i] === "@" && i != 0 && i != input.length-1){
                     checker = true;
@@ -702,6 +719,7 @@
                 message += "<li>A valid email address must have an @ in the middle</li>";
                 valid = false;
             }
+
             changeValidStyle(valid, emailField);
             if (!valid) {
                 document.getElementById("emailMsg").innerHTML = message;
@@ -713,11 +731,14 @@
         function getBiologicalSex() {
             var field = document.getElementById("sex");
             var input = field.value;
+            
+            //Check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("sexMsg").innerHTML = "Pick an option!";
                 return null;
             }
+
             changeValidStyle(true, field);
             return input;
         }
@@ -725,11 +746,14 @@
         function getLanguage() {
             var field = document.getElementById("language");
             var input = field.value;
+
+            //check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("languageMsg").innerHTML = "Pick an option!";
                 return null;
             }
+            
             changeValidStyle(true, field);
             return input;
         }
@@ -737,11 +761,14 @@
         function getCountry() {
             var field = document.getElementById("country");
             var input = field.value;
+
+            //Check for empty input
             if (input == "") {
                 changeValidStyle(false, field);
                 document.getElementById("countryMsg").innerHTML = "Pick an option!";
                 return null;
             }
+            
             changeValidStyle(true, field);
             return input;
         }
@@ -750,8 +777,8 @@
 
             var submitButton = document.getElementById("submitbutton");
 
-            submitButton.addEventListener("click", (e) => {
-                e.preventDefault();
+            submitButton.addEventListener("click", (e) => { //click event handler for submit
+                e.preventDefault(); //prevent submit from refreshing form
 
                 values = [
                     getId(), getPw(), getName(), getZip(), getEmail(), getBiologicalSex(), getLanguage(), getCountry()
@@ -759,18 +786,22 @@
                 titles = [
                     "User ID", "Password", "Name", "Zip Code", "Email", "Sex", "Language", "Country"
                 ];
+                
                 var message = "";
                 var valid = true;
-                for (var i = 0; i < values.length; i++) {
+                for (var i = 0; i < values.length; i++) { //iterate through all input field values
                     if (values[i] == null)
-                        return;
+                        return; //Break off and do not show any alerts if any of the input fields are invalid
                     message += `${titles[i]}: ${values[i]}\n`;
                 }
+                
+                //Get optional input fields
                 var bio = document.getElementById("bio").value;
                 var address = document.getElementById("address").value;
                 message += `Address: ${address}\n`;
                 message += `Bio: ${bio}\n`;
-                alert(message);
+
+                alert(message); //show values received from the user.
             });
         });
     </script>
